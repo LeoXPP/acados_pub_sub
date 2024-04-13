@@ -1,0 +1,8 @@
+prefix=/home/xie/XPP_0411_1/simulink_model_closedloop/build/devel
+
+Name: simulink_model_closedloop
+Description: Description of simulink_model_closedloop
+Version: 1.0.0
+Cflags: -I/home/xie/XPP_0411_1/simulink_model_closedloop/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs roscpp sensor_msgs std_msgs

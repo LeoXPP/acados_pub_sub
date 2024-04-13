@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: simulink_model_closedloop
+Description: Description of simulink_model_closedloop
+Version: 1.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs roscpp sensor_msgs std_msgs
