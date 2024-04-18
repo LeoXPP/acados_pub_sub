@@ -56,30 +56,39 @@ namespace ros
       terminate();
     }
 
-    void NodeInterface::initialize(int argc, char ** argv)
-    {
-      try {
-        mNode = std::make_shared<ros::NodeHandle>();
-        ROS_INFO("** Starting the model \"simulink_model_closedloop\" **\n");
-
-        //initialize the model which will initialize the publishers and subscribers
-        mModel = std::make_shared<simulink_model_closedloop>(
-          );
-        rtmSetErrorStatus(mModel->getRTM(), (NULL));
-        mModel->initialize();
-
-        // create the threads for the rates in the Model
-        mBaseRateThread = std::make_shared<std::thread>(&NodeInterface::
-          baseRateTask, this);
-
-        // create scheduler thread
-        mSchedulerThread = std::make_shared<std::thread>(&NodeInterface::
-          schedulerThread, this);
-      } catch (std::exception& ex) {
-        std::cout << ex.what() << std::endl;
-        throw ex;
-      }
-    }
+    void NodeInterface::initialize(int argc, char ** argv)  
+{  
+  try {  
+    // 创建一个ROS节点句柄的共享指针  
+    mNode = std::make_shared<ros::NodeHandle>();  
+  
+    // 输出ROS信息日志，表明模型"simulink_model_closedloop"开始运行  
+    ROS_INFO("** Starting the model \"simulink_model_closedloop\" **\n");  
+  
+    // 初始化Simulink模型，这会创建发布者和订阅者  
+    mModel = std::make_shared<simulink_model_closedloop>();  
+  
+    // 设置Simulink模型的实时任务管理器的错误状态为NULL（表示无错误）  
+    rtmSetErrorStatus(mModel->getRTM(), (NULL));  
+  
+    // 初始化Simulink模型  
+    mModel->initialize();  
+  
+    // 为模型中的基本速率创建一个线程  
+    mBaseRateThread = std::make_shared<std::thread>(&NodeInterface::  
+      baseRateTask, this);  
+  
+    // 创建一个调度器线程  
+    mSchedulerThread = std::make_shared<std::thread>(&NodeInterface::  
+      schedulerThread, this);  
+  } catch (std::exception& ex) {  
+    // 如果在初始化过程中抛出异常，捕获它并输出错误信息  
+    std::cout << ex.what() << std::endl;  
+  
+    // 重新抛出捕获的异常，以便在调用栈的更高层处理  
+    throw ex;  
+  }  
+}
 
     int NodeInterface::run()
     {

@@ -110,7 +110,7 @@ int bicycle_model_acados_create(bicycle_model_solver_capsule* capsule)
 int bicycle_model_acados_update_time_steps(bicycle_model_solver_capsule* capsule, int N, double* new_time_steps)
 {
     if (N != capsule->nlp_solver_plan->N) {
-        fprintf(stderr, "bicycle_model_acados_update_time_steps: given number of time steps (= %d) " \
+        printf(stderr, "bicycle_model_acados_update_time_steps: given number of time steps (= %d) " \
             "differs from the currently allocated number of " \
             "time steps (= %d)!\n" \
             "Please recreate with new discretization and provide a new vector of time_stamps!\n",

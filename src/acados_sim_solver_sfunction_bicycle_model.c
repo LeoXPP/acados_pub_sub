@@ -177,9 +177,9 @@ static void mdlOutputs(SimStruct *S, int_T tid)
     sim_out_get(acados_sim_config, acados_sim_dims, acados_sim_out,
                 "xn", (void *) out_x);
 
-    // ssPrintf("\nacados sim solve: returned %d\n", acados_status);
-    // for (int i = 0; i < 8; i++) ssPrintf("x_sim[%d] = %f\n", i, out_x[i]);
-    //     ssPrintf("\n");
+    printf("\n 仿真的求解器状态acados sim solve: returned %d\n", acados_status);
+    for (int i = 0; i < 8; i++) printf("x_sim[%d] = %f\n", i, out_x[i]);
+        printf("\n");
 
 }
 

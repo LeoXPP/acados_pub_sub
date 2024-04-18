@@ -25,14 +25,26 @@ namespace ros
   }                                    //namespace matlab
 }                                      //namespace ros
 
-int main(int argc, char* argv[])
-{
-  // create the Node specified in Model
-  slros_node_init(argc, argv);
-  ros::matlab::gMatlabNodeIntr = std::make_shared<ros::matlab::NodeInterface>();
-  ros::matlab::gMatlabNodeIntr->initialize(argc, argv);
-  auto ret = ros::matlab::gMatlabNodeIntr->run();
-  ros::matlab::gMatlabNodeIntr->terminate();
-  ros::matlab::gMatlabNodeIntr.reset();
-  return ret;
+int main(int argc, char* argv[])  
+{  
+  // 初始化ROS节点，使用从命令行传入的参数  
+  slros_node_init(argc, argv);  
+  
+  // 创建一个MATLAB与ROS集成的NodeInterface的共享指针  
+  ros::matlab::gMatlabNodeIntr = std::make_shared<ros::matlab::NodeInterface>();  
+  
+  // 使用从命令行传入的参数初始化MATLAB的NodeInterface  
+  ros::matlab::gMatlabNodeIntr->initialize(argc, argv);  
+  
+  // 运行MATLAB的NodeInterface，并获取其返回值  
+  auto ret = ros::matlab::gMatlabNodeIntr->run();  
+  
+  // 终止MATLAB的NodeInterface  
+  ros::matlab::gMatlabNodeIntr->terminate();  
+  
+  // 重置共享指针，释放其指向的内存  
+  ros::matlab::gMatlabNodeIntr.reset();  
+  
+  // 返回MATLAB的NodeInterface的返回值，通常用于表示程序是否成功执行  
+  return ret;  
 }

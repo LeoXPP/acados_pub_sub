@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="(empty)"
-	BuildStamp="20240413-1332-Experimental"
+	BuildStamp="20240414-0529-Experimental"
 	Name="xie-MACH-WX9"
 	Generator="ctest-3.10.2"
 	CompilerName="/usr/bin/g++"
@@ -21,14 +21,14 @@
 	TotalVirtualMemory="2047"
 	TotalPhysicalMemory="7707"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="2447.61"
+	ProcessorClockFrequency="2321.7"
 	>
 	<Testing>
-		<StartDateTime>Apr 13 23:52 CST</StartDateTime>
-		<StartTestTime>1713023536</StartTestTime>
+		<StartDateTime>Apr 14 14:58 CST</StartDateTime>
+		<StartTestTime>1713077888</StartTestTime>
 		<TestList/>
-		<EndDateTime>Apr 13 23:52 CST</EndDateTime>
-		<EndTestTime>1713023536</EndTestTime>
+		<EndDateTime>Apr 14 14:58 CST</EndDateTime>
+		<EndTestTime>1713077888</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>
